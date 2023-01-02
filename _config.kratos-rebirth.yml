@@ -242,4 +242,8 @@ friends:
       bio: "YiFanZhuZhu's Blog"
       avatar: "https://blog.yifanzhuzhu.tk/images/favicon-32x32-yf.png"
       link: "https://blog.yifanzhuzhu.tk/"
+    - name: "zhao"
+      bio: "zhao的博客"
+      avatar: "https://www.zczhao.cn/114514.jpg"
+      link: "https://www.zczhao.cn/"
   verify: true # 验证每个友链的可访问性，炸了会有提示
