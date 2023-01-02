@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://www.thisisxd.tk/wp-content/uploads/2021/12/QQ%E6%88%AA%E5%9B%BE20211205201151.png">
 <meta property="og:image" content="https://www.thisisxd.tk/wp-content/uploads/2021/12/QQ%E5%9B%BE%E7%89%8720211205200815.png">
 <meta property="article:published_time" content="2021-12-05T12:40:00.000Z">
-<meta property="article:modified_time" content="2023-01-02T06:50:55.935Z">
+<meta property="article:modified_time" content="2023-01-02T07:05:35.223Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.thisisxd.tk/wp-content/uploads/2021/12/QQ%E6%88%AA%E5%9B%BE20211205201151.png">
@@ -169,7 +169,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1672642255935"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1672643135223"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -465,7 +465,7 @@ KeyCode 是一个轻便的键盘按键码查询工具，TA拥有瘦小的体积�
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-01-02T06:50:55.935Z" itemprop="dateModified">最后编辑：2023-01-02</time>
+                    <time datetime="2023-01-02T07:05:35.223Z" itemprop="dateModified">最后编辑：2023-01-02</time>
                 </div>
             </div>
         </footer>
@@ -485,28 +485,27 @@ KeyCode 是一个轻便的键盘按键码查询工具，TA拥有瘦小的体积�
         </nav>
     
     
-        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
-<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+        <link rel="stylesheet" href="/vendors/gitment@0.0.3/style/default.css"></script>
+<div id="gitment-container" class="post-comments lazy-load"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            console.log('Gitalk loading...');
-            const gitalk = new Gitalk(Object.assign({
-                id: '/202112/KeyCode-Beta-1/',
-                path: '/202112/KeyCode-Beta-1/'
-            }, JSON.parse('{"clientID":"cc7598f4302064fcc288","clientSecret":"3a8665a200f6780befa2382f846eb2ee45749c97","repo":"Blog","owner":"This-is-XiaoDeng","admin":["Candinya","This-is-XiaoDeng"],"distractionFreeMode":false}')));
+            console.log('Gitment loading...');
+            const gitment = new Gitment(Object.assign({
+                id: '/202112/KeyCode-Beta-1/'
+            }, JSON.parse('{"owner":"This-is-XiaoDeng","repo":"This-is-XiaoDeng/Blog","oauth":{"client_id":"cc7598f4302064fcc288","client_secret":"3a8665a200f6780befa2382f846eb2ee45749c97"}}')));
 
-            gitalk.render('gitalk-container');
+            gitment.render('gitment-container');
         }
-        if (typeof Gitalk === 'undefined') {
-            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
+        if (typeof Gitment === 'undefined') {
+            const src = '/vendors/gitment@0.0.3/dist/gitment.browser.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">comments powered by Gitment.</a></noscript>
     
 </article>
 
