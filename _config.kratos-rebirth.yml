@@ -140,10 +140,10 @@ waline:
 gitalk:
   clientID: 'cc7598f4302064fcc288'
   clientSecret: '3a8665a200f6780befa2382f846eb2ee45749c97'
-  repo: 'This-is-XiaoDeng/Blog'
+  repo: 'Blog'
   owner: 'This-is-XiaoDeng'
   admin: 
-    - 'Candinya'
+    - 'This-is-XiaoDeng'
   distractionFreeMode: false
 
 # Gitment [Gitment](https://github.com/imsun/gitment/) 评论相关
