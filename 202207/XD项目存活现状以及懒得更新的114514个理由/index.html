@@ -24,7 +24,7 @@
 <meta property="og:description" content="温馨提示：本文可能已经过时  XToolsBox+ 最后更新：V 1.1.2（2022&#x2F;6&#x2F;14 19:00） 存活状态：暂停更新 备注：后台服务器连不上了更新不了，POST请求也出了点问题有时候报文没参数  XAPI Group 最后更新：V1（2022&#x2F;6&#x2F;21） 存活状态：暂停更新 备注：服务器连不上了  CAVE-CLI 最后更新：未知 存活状态：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-20T10:18:18.000Z">
-<meta property="article:modified_time" content="2023-01-02T06:36:06.456Z">
+<meta property="article:modified_time" content="2023-01-02T06:39:14.073Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@@XiaoDeng3386">
@@ -166,7 +166,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1672641366456"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1672641554073"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -305,7 +305,7 @@ X...`;
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-01-02T06:36:06.456Z" itemprop="dateModified">最后编辑：2023-01-02</time>
+                    <time datetime="2023-01-02T06:39:14.073Z" itemprop="dateModified">最后编辑：2023-01-02</time>
                 </div>
             </div>
         </footer>
@@ -325,27 +325,28 @@ X...`;
         </nav>
     
     
-        <link rel="stylesheet" href="/vendors/gitment@0.0.3/style/default.css"></script>
-<div id="gitment-container" class="post-comments lazy-load"></div>
+        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            console.log('Gitment loading...');
-            const gitment = new Gitment(Object.assign({
-                id: '/202207/XD%E9%A1%B9%E7%9B%AE%E5%AD%98%E6%B4%BB%E7%8E%B0%E7%8A%B6%E4%BB%A5%E5%8F%8A%E6%87%92%E5%BE%97%E6%9B%B4%E6%96%B0%E7%9A%84114514%E4%B8%AA%E7%90%86%E7%94%B1/'
-            }, JSON.parse('{"owner":"This-is-XiaoDeng","repo":"This-is-XiaoDeng/Blog","oauth":{"client_id":"cc7598f4302064fcc288","client_secret":"3a8665a200f6780befa2382f846eb2ee45749c97"}}')));
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/202207/XD%E9%A1%B9%E7%9B%AE%E5%AD%98%E6%B4%BB%E7%8E%B0%E7%8A%B6%E4%BB%A5%E5%8F%8A%E6%87%92%E5%BE%97%E6%9B%B4%E6%96%B0%E7%9A%84114514%E4%B8%AA%E7%90%86%E7%94%B1/',
+                path: '/202207/XD%E9%A1%B9%E7%9B%AE%E5%AD%98%E6%B4%BB%E7%8E%B0%E7%8A%B6%E4%BB%A5%E5%8F%8A%E6%87%92%E5%BE%97%E6%9B%B4%E6%96%B0%E7%9A%84114514%E4%B8%AA%E7%90%86%E7%94%B1/'
+            }, JSON.parse('{"clientID":"cc7598f4302064fcc288","clientSecret":"3a8665a200f6780befa2382f846eb2ee45749c97","repo":"This-is-XiaoDeng/Blog","owner":"This-is-XiaoDeng","admin":["Candinya"],"distractionFreeMode":false}')));
 
-            gitment.render('gitment-container');
+            gitalk.render('gitalk-container');
         }
-        if (typeof Gitment === 'undefined') {
-            const src = '/vendors/gitment@0.0.3/dist/gitment.browser.js';
+        if (typeof Gitalk === 'undefined') {
+            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">comments powered by Gitment.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
     
 </article>
 
