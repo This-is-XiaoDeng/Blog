@@ -150,11 +150,11 @@ gitalk:
 ## 不仅限于以下内容，您可以参照 [Gitment 文档](https://github.com/imsun/gitment#methods) 设置您需要的配置项
 ## id 会在页面自动生成，不必加入
 gitment:
-  owner: 'Candinya'
-  repo: 'Kratos-Rebirth-Demo'
+  owner: 'This-is-XiaoDeng'
+  repo: 'Blog'
   oauth:
-    client_id: 'Your client ID'
-    client_secret: 'Your client secret'
+    client_id: 'cc7598f4302064fcc288'
+    client_secret: '3a8665a200f6780befa2382f846eb2ee45749c97'
 
 # LiveRe [LiveRe](https://livere.com/) 评论相关
 livere:
