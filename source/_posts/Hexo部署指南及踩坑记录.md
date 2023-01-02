@@ -140,11 +140,15 @@ on:
 > 具体多试试，不成功可以在下面发评论问
 
 
+# 建议阅读
+
+[Hexo官方文档][6]
+
 
   [1]: https://blog.thisisxd.top/202209/%E5%A6%82%E4%BD%95%E7%94%A8%E6%9C%80%E5%B0%91%E7%9A%84%E9%92%B1%E5%BC%80%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%9F/
   [2]: https://nodejs.org
   [3]: https://hexo.io/zh-cn/docs/configuration
   [4]: https://hexo.io/themes/
   [5]: https://hexo.io/zh-cn/docs/github-pages
-
+  [6]: https://hexo.io/zh-cn/docs/
 
