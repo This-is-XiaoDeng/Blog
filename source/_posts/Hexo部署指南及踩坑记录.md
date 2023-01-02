@@ -139,6 +139,31 @@ on:
 
 > 具体多试试，不成功可以在下面发评论问
 
+{% colorpanel warning 常见异常 %}
+
+## Error: Not Found
+
+此错误可能是由于以下原因引起的：
+
+1. 仓库未公开
+2. 仓库未开启issue
+3. 仓库未初始化issue
+
+### 初始化 issue
+
+1. 在仓库设置中，勾选`Issue`，保存并刷新页面
+2. 打开仓库`Issues`，点击`New Issue`，编辑内容并提交，即可初始化`Issue`
+
+## Error: Validation Failed.
+
+此错误可能是由于以下原因引起的
+
+1. 文章标题过长导致url过长
+
+您可以[修改][8]文章[永久链接][7]以消除此错误
+
+ {% endcolorpanel %}
+
 
 # 建议阅读
 
@@ -151,4 +176,5 @@ on:
   [4]: https://hexo.io/themes/
   [5]: https://hexo.io/zh-cn/docs/github-pages
   [6]: https://hexo.io/zh-cn/docs/
-
+  [7]: https://hexo.io/zh-cn/docs/configuration#%E7%BD%91%E5%9D%80
+  [8]: https://hexo.io/zh-cn/docs/permalinks
