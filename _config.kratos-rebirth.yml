@@ -180,7 +180,7 @@ widgets:
 - category
 - tagcloud
 - posts
-avatarUri: /Images/2.jpeg
+avatarUri: /Images/2.jpg
 mobile_toc: 
   hide: false
   hide_id: false
