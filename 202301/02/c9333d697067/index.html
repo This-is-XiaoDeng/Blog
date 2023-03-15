@@ -24,7 +24,7 @@
 <meta property="og:description" content="各位用户：   参考 IT Craft Development Team 建议，因为经费不足，KOD云盘 综合表现也没有达到预期效果，所以决定关闭 KOD云盘 以节省服务器开支   KOD云盘 将随主机到期（大概为2023年1月末）而停止运行，我们不会备份云盘内储存的其他文件，请做好备份！ 2023年01月02日">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-02T05:48:46.000Z">
-<meta property="article:modified_time" content="2023-03-15T14:56:29.912Z">
+<meta property="article:modified_time" content="2023-03-15T15:00:09.793Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="atom.xml" type="application/atom+xml">
@@ -164,7 +164,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678892189912"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678892409793"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -265,7 +265,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-15T14:56:29.912Z" itemprop="dateModified">最后编辑：2023-03-15</time>
+                    <time datetime="2023-03-15T15:00:09.793Z" itemprop="dateModified">最后编辑：2023-03-15</time>
                 </div>
             </div>
         </footer>
@@ -285,28 +285,27 @@
         </nav>
     
     
-        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
-<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+        <link rel="stylesheet" href="/vendors/gitment@0.0.3/style/default.css"></script>
+<div id="gitment-container" class="post-comments lazy-load"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            console.log('Gitalk loading...');
-            const gitalk = new Gitalk(Object.assign({
-                id: '/202301/02/c9333d697067/',
-                path: '/202301/02/c9333d697067/'
-            }, JSON.parse('{"clientID":"cc7598f4302064fcc288","clientSecret":"3a8665a200f6780befa2382f846eb2ee45749c97","repo":"Blog","owner":"This-is-XiaoDeng","admin":["Candinya","This-is-XiaoDeng"],"distractionFreeMode":false}')));
+            console.log('Gitment loading...');
+            const gitment = new Gitment(Object.assign({
+                id: '/202301/02/c9333d697067/'
+            }, JSON.parse('{"owner":"This-is-XiaoDeng","repo":"This-is-XiaoDeng/Blog","oauth":{"client_id":"cc7598f4302064fcc288","client_secret":"3a8665a200f6780befa2382f846eb2ee45749c97"}}')));
 
-            gitalk.render('gitalk-container');
+            gitment.render('gitment-container');
         }
-        if (typeof Gitalk === 'undefined') {
-            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
+        if (typeof Gitment === 'undefined') {
+            const src = '/vendors/gitment@0.0.3/dist/gitment.browser.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/imsun/gitment">comments powered by Gitment.</a></noscript>
     
 </article>
 
