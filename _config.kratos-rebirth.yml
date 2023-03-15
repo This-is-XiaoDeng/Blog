@@ -118,8 +118,8 @@ disqusjs:
 
 # Valine [Valine](https://valine.js.org) 评论相关
 valine:
-  app_id: clYJgdMbibwrTzFErcapVCdy-MdYXbMMI
-  app_key: 4t6e3tDRxWdmYhRhFH7rJqaA
+  app_id: 
+  app_key:
   visitor: true
   enableQQ: true
 
