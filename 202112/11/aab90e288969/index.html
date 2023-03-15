@@ -24,7 +24,7 @@
 <meta property="og:description" content="pip is the package installer for Python. You can use it to install packages from the Python Package Index and other indexes.——pip.pypa.io    鲁迅先生曾经说过这样一句话：“没有pip的Python是没有灵魂的（是不是有点过了）。”    但是，很多人在使用p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-11T07:11:00.000Z">
-<meta property="article:modified_time" content="2023-03-15T11:54:05.872Z">
+<meta property="article:modified_time" content="2023-03-15T14:35:38.871Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="atom.xml" type="application/atom+xml">
@@ -158,10 +158,18 @@
                     字
                 </li>
                 
-                    <li id="/202112/11/aab90e288969/" class="leancloud_visitors" data-flag-title="Python3 PIP 安装">
-                        <i class="fa fa-eye"></i>
-                        <span class="leancloud-visitors-count"> </span> 次阅读
-                    </li>
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/202112/11/aab90e288969/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/202112/11/aab90e288969/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
                 
             </ul>
         </header>
@@ -169,7 +177,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678881245872"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678890938871"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -424,7 +432,7 @@ pip is the package installer for Python. You can use it to install packages from
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-15T11:54:05.872Z" itemprop="dateModified">最后编辑：2023-03-15</time>
+                    <time datetime="2023-03-15T14:35:38.871Z" itemprop="dateModified">最后编辑：2023-03-15</time>
                 </div>
             </div>
         </footer>
@@ -444,28 +452,26 @@ pip is the package installer for Python. You can use it to install packages from
         </nav>
     
     
-        <div id="v-comments" class="post-comments"></div>
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@1.6.0/dist/waline.css" />
 <script>
     var load_comm = () => {
         const init = () => {
-            new Valine({
-                el: '#v-comments',
-                appId: '',
-                appKey: '',
-                visitor: true,
-                enableQQ: true,
-                path: '/202112/11/aab90e288969/'
-            });
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/202112/11/aab90e288969/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://blog-comment-3ex0vmlv9-this-is-xiaodeng.vercel.app/","comment":true,"pageview":true,"visitor":true}')));
         }
-        if (typeof Valine === 'undefined') {
-            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@1.6.0/dist/waline.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
 
     
 </article>

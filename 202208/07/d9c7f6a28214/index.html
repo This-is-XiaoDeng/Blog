@@ -24,7 +24,7 @@
 <meta property="og:description" content="This-is-XiaoDeng&#x2F;XChat 简介 版本：V1.2-beta  XChat Server 是软件 XChat 的服务端，可以让您在1分钟内拥有一个自己的 XChat 服务器。 依赖 Python3 rich  使用教程 安装依赖，打开 XChat Server 输入端口 完成  源代码12345678910111213141516171819202122232425262">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-07T04:47:00.000Z">
-<meta property="article:modified_time" content="2023-03-15T11:54:05.872Z">
+<meta property="article:modified_time" content="2023-03-15T14:35:38.871Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="atom.xml" type="application/atom+xml">
@@ -158,10 +158,18 @@
                     字
                 </li>
                 
-                    <li id="/202208/07/d9c7f6a28214/" class="leancloud_visitors" data-flag-title="XChat Server V1.2-beta">
-                        <i class="fa fa-eye"></i>
-                        <span class="leancloud-visitors-count"> </span> 次阅读
-                    </li>
+                    
+                        <li>
+                            <i class="fa fa-eye"></i>
+                            <span data-path="/202208/07/d9c7f6a28214/" class="waline-pageview-count"> </span> 次阅读
+                        </li>
+                    
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-path="/202208/07/d9c7f6a28214/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
                 
             </ul>
         </header>
@@ -169,7 +177,7 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678881245872"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678890938871"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -288,7 +296,7 @@ rich
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-15T11:54:05.872Z" itemprop="dateModified">最后编辑：2023-03-15</time>
+                    <time datetime="2023-03-15T14:35:38.871Z" itemprop="dateModified">最后编辑：2023-03-15</time>
                 </div>
             </div>
         </footer>
@@ -308,28 +316,26 @@ rich
         </nav>
     
     
-        <div id="v-comments" class="post-comments"></div>
+        <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@1.6.0/dist/waline.css" />
 <script>
     var load_comm = () => {
         const init = () => {
-            new Valine({
-                el: '#v-comments',
-                appId: '',
-                appKey: '',
-                visitor: true,
-                enableQQ: true,
-                path: '/202208/07/d9c7f6a28214/'
-            });
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/202208/07/d9c7f6a28214/',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://blog-comment-3ex0vmlv9-this-is-xiaodeng.vercel.app/","comment":true,"pageview":true,"visitor":true}')));
         }
-        if (typeof Valine === 'undefined') {
-            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@1.6.0/dist/waline.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
 
     
 </article>

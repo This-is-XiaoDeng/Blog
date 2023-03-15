@@ -190,14 +190,19 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li id="/202202/27/46a2dd0bf489/" class="leancloud_visitors" data-flag-title="PyFinder">
+                                <li>
                                     <i class="fa fa-eye"></i>
-                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                    <span data-path="/202202/27/46a2dd0bf489/" class="waline-pageview-count"> </span> 次阅读
                                 </li>
                             
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                                <li>
+                                    <i class="fa fa-commenting-o"></i>
+                                    <span data-path="/202202/27/46a2dd0bf489/" class="waline-comment-count"> </span> 条评论
+                                </li>
                             
                         
                     </ul>
@@ -389,14 +394,19 @@ f = pyfinder.find_threads(name="exe",start="C:\\")
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li id="/202112/24/ed47b3781c02/" class="leancloud_visitors" data-flag-title="「Is today Friday?」 V 1.0">
+                                <li>
                                     <i class="fa fa-eye"></i>
-                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                    <span data-path="/202112/24/ed47b3781c02/" class="waline-pageview-count"> </span> 次阅读
                                 </li>
                             
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                                <li>
+                                    <i class="fa fa-commenting-o"></i>
+                                    <span data-path="/202112/24/ed47b3781c02/" class="waline-comment-count"> </span> 条评论
+                                </li>
                             
                         
                     </ul>
@@ -765,14 +775,19 @@ class Ui_MainWindow(object):
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li id="/202112/05/7c3faaaf90c2/" class="leancloud_visitors" data-flag-title="KeyCode Beta 1">
+                                <li>
                                     <i class="fa fa-eye"></i>
-                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                    <span data-path="/202112/05/7c3faaaf90c2/" class="waline-pageview-count"> </span> 次阅读
                                 </li>
                             
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                                <li>
+                                    <i class="fa fa-commenting-o"></i>
+                                    <span data-path="/202112/05/7c3faaaf90c2/" class="waline-comment-count"> </span> 条评论
+                                </li>
                             
                         
                     </ul>
@@ -985,28 +1000,26 @@ while True:
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
         
-            <div id="v-comments" class="post-comments"></div>
+            <div id="w-comments" class="post-comments"></div>
+<link rel="stylesheet" href="/vendors/@waline/client@1.6.0/dist/waline.css" />
 <script>
     var load_comm = () => {
         const init = () => {
-            new Valine({
-                el: '#v-comments',
-                appId: '',
-                appKey: '',
-                visitor: true,
-                enableQQ: true,
-                path: '/categories/%E9%A1%B9%E7%9B%AE/page/2/index.html'
-            });
+            Waline.init(Object.assign({
+                el: '#w-comments',
+                path: '/categories/%E9%A1%B9%E7%9B%AE/page/2/index.html',
+                dark: 'html[data-theme="dark"]',
+            }, JSON.parse('{"serverURL":"https://blog-comment-3ex0vmlv9-this-is-xiaodeng.vercel.app/","comment":true,"pageview":true,"visitor":true}')));
         }
-        if (typeof Valine === 'undefined') {
-            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+        if (typeof Waline === 'undefined') {
+            const src = '/vendors/@waline/client@1.6.0/dist/waline.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
 
         
     </div>
