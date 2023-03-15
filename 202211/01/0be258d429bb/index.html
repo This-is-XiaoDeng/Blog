@@ -24,7 +24,7 @@
 <meta property="og:description" content="项目名PyPiSearch  版本v1.0  GitHubThis-is-XiaoDeng&#x2F;PyPiSearch  简介这是一个 PyPi 搜索程序，一定程度上解决了 pip 不支持搜包的问题 依赖 Python3 rich requests  使用方法123git clone https:&#x2F;&#x2F;github.com&#x2F;This-is-XiaoDeng&#x2F;PyPiSearch.gitpip inst">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-01T13:05:05.000Z">
-<meta property="article:modified_time" content="2023-03-15T14:45:30.548Z">
+<meta property="article:modified_time" content="2023-03-15T14:56:29.912Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="atom.xml" type="application/atom+xml">
@@ -158,26 +158,13 @@
                     字
                 </li>
                 
-                    
-                        <li>
-                            <i class="fa fa-eye"></i>
-                            <span data-path="/202211/01/0be258d429bb/" class="waline-pageview-count"> </span> 次阅读
-                        </li>
-                    
-                    
-                        <li>
-                            <i class="fa fa-commenting-o"></i>
-                            <span data-path="/202211/01/0be258d429bb/" class="waline-comment-count"> </span> 条评论
-                        </li>
-                    
-                
             </ul>
         </header>
         <div class="kratos-post-content">
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678891530548"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678892189912"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -308,7 +295,7 @@ re...`;
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-15T14:45:30.548Z" itemprop="dateModified">最后编辑：2023-03-15</time>
+                    <time datetime="2023-03-15T14:56:29.912Z" itemprop="dateModified">最后编辑：2023-03-15</time>
                 </div>
             </div>
         </footer>
@@ -328,27 +315,28 @@ re...`;
         </nav>
     
     
-        <div id="w-comments" class="post-comments"></div>
-<link rel="stylesheet" href="/vendors/@waline/client@1.6.0/dist/waline.css" />
+        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
+<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            Waline.init(Object.assign({
-                el: '#w-comments',
-                path: '/202211/01/0be258d429bb/',
-                dark: 'html[data-theme="dark"]',
-            }, JSON.parse('{"serverURL":"https://blog-comment-dusky.vercel.app/","comment":true,"pageview":true,"visitor":true}')));
+            console.log('Gitalk loading...');
+            const gitalk = new Gitalk(Object.assign({
+                id: '/202211/01/0be258d429bb/',
+                path: '/202211/01/0be258d429bb/'
+            }, JSON.parse('{"clientID":"cc7598f4302064fcc288","clientSecret":"3a8665a200f6780befa2382f846eb2ee45749c97","repo":"Blog","owner":"This-is-XiaoDeng","admin":["Candinya","This-is-XiaoDeng"],"distractionFreeMode":false}')));
+
+            gitalk.render('gitalk-container');
         }
-        if (typeof Waline === 'undefined') {
-            const src = '/vendors/@waline/client@1.6.0/dist/waline.js';
+        if (typeof Gitalk === 'undefined') {
+            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
-
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
     
 </article>
 

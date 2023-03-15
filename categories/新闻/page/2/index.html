@@ -190,19 +190,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202209/10/a3ab8a2c9b9a/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202209/10/a3ab8a2c9b9a/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -273,19 +263,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202208/10/bb80f8be6ceb/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202208/10/bb80f8be6ceb/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -331,19 +311,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202207/11/97bbab1ef2bb/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202207/11/97bbab1ef2bb/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -391,19 +361,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202206/24/77dedb535c8f/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202206/24/77dedb535c8f/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -513,19 +473,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202206/19/2cdf5d9e83df/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202206/19/2cdf5d9e83df/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -584,19 +534,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202203/30/1b2f269e4277/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202203/30/1b2f269e4277/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -650,19 +590,9 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
-                                <li>
-                                    <i class="fa fa-eye"></i>
-                                    <span data-path="/202201/03/2feb229254f5/" class="waline-pageview-count"> </span> 次阅读
-                                </li>
-                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                                <li>
-                                    <i class="fa fa-commenting-o"></i>
-                                    <span data-path="/202201/03/2feb229254f5/" class="waline-comment-count"> </span> 条评论
-                                </li>
                             
                         
                     </ul>
@@ -713,28 +643,6 @@
 
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
-        
-            <div id="w-comments" class="post-comments"></div>
-<link rel="stylesheet" href="/vendors/@waline/client@1.6.0/dist/waline.css" />
-<script>
-    var load_comm = () => {
-        const init = () => {
-            Waline.init(Object.assign({
-                el: '#w-comments',
-                path: '/categories/%E6%96%B0%E9%97%BB/page/2/index.html',
-                dark: 'html[data-theme="dark"]',
-            }, JSON.parse('{"serverURL":"https://blog-comment-dusky.vercel.app/","comment":true,"pageview":true,"visitor":true}')));
-        }
-        if (typeof Waline === 'undefined') {
-            const src = '/vendors/@waline/client@1.6.0/dist/waline.js';
-            $.getScript(src, init);
-        } else {
-            init();
-        }
-    };
-</script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
-
         
     </div>
 
