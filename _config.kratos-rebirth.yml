@@ -100,7 +100,7 @@ posts:
   donate: false
   share: true
   comments: 
-    provider: 'gitalk'
+    provider: 'valine'
     enableBGImage: false
 
 # Disqus [Disqus](https://disqus.com) 评论相关
@@ -118,10 +118,10 @@ disqusjs:
 
 # Valine [Valine](https://valine.js.org) 评论相关
 valine:
-  app_id: 
-  app_key: 
+  app_id: clYJgdMbibwrTzFErcapVCdy-MdYXbMMI
+  app_key: 4t6e3tDRxWdmYhRhFH7rJqaA
   visitor: true
-  enableQQ: false
+  enableQQ: true
 
 # Twikoo [Twikoo](https://twikoo.js.org) 评论相关
 twikoo:
