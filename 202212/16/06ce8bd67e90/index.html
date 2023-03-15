@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.shields.io/badge/Sponsor%20me!-green?logo=wechat&amp;logoColor=white&amp;style=flat">
 <meta property="article:published_time" content="2022-12-16T15:52:30.000Z">
-<meta property="article:modified_time" content="2023-03-15T10:52:39.634Z">
+<meta property="article:modified_time" content="2023-03-15T11:21:24.686Z">
 <meta property="article:author" content="This is XiaoDeng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.shields.io/badge/Sponsor%20me!-green?logo=wechat&amp;logoColor=white&amp;style=flat">
@@ -160,13 +160,18 @@
                     字
                 </li>
                 
+                    <li id="/202212/16/06ce8bd67e90/" class="leancloud_visitors" data-flag-title="XDCloud 又——炸——了——">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                
             </ul>
         </header>
         <div class="kratos-post-content">
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1678877559634"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1678879284686"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
@@ -268,7 +273,7 @@
                     
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-15T10:52:39.634Z" itemprop="dateModified">最后编辑：2023-03-15</time>
+                    <time datetime="2023-03-15T11:21:24.686Z" itemprop="dateModified">最后编辑：2023-03-15</time>
                 </div>
             </div>
         </footer>
@@ -288,28 +293,29 @@
         </nav>
     
     
-        <link rel="stylesheet" href="/vendors/gitalk@1.7.2/dist/gitalk.css"></script>
-<div id="gitalk-container" class="post-comments lazy-load" style="padding-left:2rem; padding-right:2rem;"></div>
+        <div id="v-comments" class="post-comments"></div>
 <script>
     var load_comm = () => {
         const init = () => {
-            console.log('Gitalk loading...');
-            const gitalk = new Gitalk(Object.assign({
-                id: '/202212/16/06ce8bd67e90/',
+            new Valine({
+                el: '#v-comments',
+                appId: 'clYJgdMbibwrTzFErcapVCdy-MdYXbMMI',
+                appKey: '4t6e3tDRxWdmYhRhFH7rJqaA',
+                visitor: true,
+                enableQQ: true,
                 path: '/202212/16/06ce8bd67e90/'
-            }, JSON.parse('{"clientID":"cc7598f4302064fcc288","clientSecret":"3a8665a200f6780befa2382f846eb2ee45749c97","repo":"Blog","owner":"This-is-XiaoDeng","admin":["Candinya","This-is-XiaoDeng"],"distractionFreeMode":false}')));
-
-            gitalk.render('gitalk-container');
+            });
         }
-        if (typeof Gitalk === 'undefined') {
-            const src = '/vendors/gitalk@1.7.2/dist/gitalk.min.js';
+        if (typeof Valine === 'undefined') {
+            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
             $.getScript(src, init);
         } else {
             init();
         }
     };
 </script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk">comments powered by Gitalk.</a></noscript>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
     
 </article>
 

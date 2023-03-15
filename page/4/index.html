@@ -155,6 +155,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202204/16/fe92701ecbd2/" class="leancloud_visitors" data-flag-title="ITCDT 群回声洞 json 数据 api 开放">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -210,6 +215,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202204/15/cfba05b11256/" class="leancloud_visitors" data-flag-title="ITCRAFT CAVE条目获取API">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -260,6 +270,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202204/15/e6244eda984a/" class="leancloud_visitors" data-flag-title="ITCRAFT ECHO CAVE SEARCH">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -358,6 +373,11 @@ if __name__ == "__main__":
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202203/30/1b2f269e4277/" class="leancloud_visitors" data-flag-title="X&T Minecraft Survival Server 已关闭">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -414,6 +434,11 @@ if __name__ == "__main__":
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202203/30/7b4b80b9f278/" class="leancloud_visitors" data-flag-title="居家隔离第一天">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -461,6 +486,11 @@ if __name__ == "__main__":
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202203/25/a5c5637d8868/" class="leancloud_visitors" data-flag-title="XLogger">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -631,6 +661,11 @@ log.close()</code></pre>
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202203/15/e8f9eaafb0ae/" class="leancloud_visitors" data-flag-title="This is XiaoDeng's Tools Box Release 1.5">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -746,6 +781,11 @@ log.close()</code></pre>
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202202/27/46a2dd0bf489/" class="leancloud_visitors" data-flag-title="PyFinder">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -935,6 +975,11 @@ f = pyfinder.find_threads(name="exe",start="C:\\")
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202201/11/cb4f5d138460/" class="leancloud_visitors" data-flag-title="YOUR-LIFE">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -1072,6 +1117,11 @@ if __name__ == "__main__":
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202201/03/2feb229254f5/" class="leancloud_visitors" data-flag-title="MC服务器已经迁移到简幻欢平台">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -1125,6 +1175,30 @@ if __name__ == "__main__":
 
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'clYJgdMbibwrTzFErcapVCdy-MdYXbMMI',
+                appKey: '4t6e3tDRxWdmYhRhFH7rJqaA',
+                visitor: true,
+                enableQQ: true,
+                path: '/page/4/index.html'
+            });
+        }
+        if (typeof Valine === 'undefined') {
+            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
         
     </div>
 

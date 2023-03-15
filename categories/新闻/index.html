@@ -185,6 +185,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202301/02/c9333d697067/" class="leancloud_visitors" data-flag-title="KOD Cloud 即将关闭">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -233,6 +238,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202212/16/06ce8bd67e90/" class="leancloud_visitors" data-flag-title="XDCloud 又——炸——了——">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -284,6 +294,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202212/10/a8e5b4d3a66e/" class="leancloud_visitors" data-flag-title="XDbot 项目公告（12月10日）">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -331,6 +346,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202211/24/5b7ed84b6c48/" class="leancloud_visitors" data-flag-title="喜报：XDbot 又双叒叕 寄∽了∽">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -384,6 +404,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202211/05/da92a0c9d5c7/" class="leancloud_visitors" data-flag-title="XDbot 开源计划进行中">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -435,6 +460,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202210/15/ef7296f2711d/" class="leancloud_visitors" data-flag-title="喜报：XDbot 寄了">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -488,6 +518,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202210/03/c3285b52595a/" class="leancloud_visitors" data-flag-title="这里是小邓的日记本 已开放">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -535,6 +570,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202209/12/8b76310ccc32/" class="leancloud_visitors" data-flag-title="XDCloud 域名调整通知">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -580,6 +620,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202209/11/7565f1bee486/" class="leancloud_visitors" data-flag-title="XDcloud 已开放">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -675,6 +720,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202209/11/3893ca986b9b/" class="leancloud_visitors" data-flag-title="关于本站部分站点位置调整通知">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -719,6 +769,30 @@
 
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'clYJgdMbibwrTzFErcapVCdy-MdYXbMMI',
+                appKey: '4t6e3tDRxWdmYhRhFH7rJqaA',
+                visitor: true,
+                enableQQ: true,
+                path: '/categories/%E6%96%B0%E9%97%BB/index.html'
+            });
+        }
+        if (typeof Valine === 'undefined') {
+            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
         
     </div>
 

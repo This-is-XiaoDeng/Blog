@@ -190,6 +190,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202301/02/144ddeb9c7f9/" class="leancloud_visitors" data-flag-title="Hexo部署指南及踩坑记录">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -347,6 +352,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202209/18/76ce786c613d/" class="leancloud_visitors" data-flag-title="如何用最少的钱开一个网站？">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -482,6 +492,11 @@
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
                             
+                                <li id="/202206/21/06bb27a2b5fd/" class="leancloud_visitors" data-flag-title="XAPI-Group V1 文档">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
+                            
                         
                         
                             <!-- 当前仅支持waline自带的统计功能 -->
@@ -540,6 +555,11 @@
                         
                         
                             <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                                <li id="/202112/11/aab90e288969/" class="leancloud_visitors" data-flag-title="Python3 PIP 安装">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="leancloud-visitors-count"> </span> 次阅读
+                                </li>
                             
                         
                         
@@ -726,6 +746,30 @@ General Options:
 
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+            <div id="v-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Valine({
+                el: '#v-comments',
+                appId: 'clYJgdMbibwrTzFErcapVCdy-MdYXbMMI',
+                appKey: '4t6e3tDRxWdmYhRhFH7rJqaA',
+                visitor: true,
+                enableQQ: true,
+                path: '/categories/%E6%95%99%E7%A8%8B/index.html'
+            });
+        }
+        if (typeof Valine === 'undefined') {
+            const src = '/vendors/valine@1.4.18/dist/Valine.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://valine.js.org/">comments powered by Valine.</a></noscript>
+
         
     </div>
 
