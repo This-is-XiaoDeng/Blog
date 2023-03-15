@@ -100,7 +100,7 @@ posts:
   donate: false
   share: true
   comments: 
-    provider: 'waline'
+    provider: 'gitalk'
     enableBGImage: false
 
 # Disqus [Disqus](https://disqus.com) 评论相关
