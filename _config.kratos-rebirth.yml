@@ -100,12 +100,12 @@ posts:
   donate: false
   share: true
   comments: 
-    provider: ''
+    provider: 'disqus'
     enableBGImage: false
 
 # Disqus [Disqus](https://disqus.com) 评论相关
 disqus:
-  shortname: 
+  shortname: 'xiaodeng3386-blog'
 
 # DisqusJS [DisqusJS](https://disqusjs.skk.moe/) 评论相关
 disqusjs:
