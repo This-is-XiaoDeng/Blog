@@ -2,7 +2,7 @@
 title: Minecraft 或将停止在中国大陆的服务
 date: 2023-04-30 21:07:10
 categories: 新闻
-tags: 游戏, 转载
+tags: 转载
 ---
 
 {% alertbox info "以下内容来自 https://www.mcrjun.cn/archives/484" %}
@@ -32,5 +32,6 @@ Microsoft Store 目前也无法购买 Minecraft，但是已经购买 Minecraft �
 
 此前，Microsoft/Mojang 运营的 Minecraft 虽然可以在中国下载，但是未按照国家相关要求添加防沉迷等保护措施，而网易代理的《我的世界》遵守了这一规定，这可能是 Minecraft 发出此通知的一个原因。
 
+{% alertbox warning "以下内容不属于 https://www.mcrjun.cn/archives/484" %}
 
-
+也有一定迹象表明，Minecraft 本次 “锁区” 很可能只是一个临时性的操作，一段时间过后可能会恢复正常。
