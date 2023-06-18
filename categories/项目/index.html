@@ -167,6 +167,167 @@
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 
                 <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/202306/18/7f0ca2dd9e9e/" itemprop="mainEntityOfPage"><span itemprop="name headline">XDbot2 Cave API</span></a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                        <time datetime="2023-06-18T07:18:43.000Z" itemprop="datePublished">
+                            <i class="fa fa-calendar"></i> 2023-06-18
+                        </time>
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/XDbot2/" rel="tag">XDbot2</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content" itemprop="articleBody">
+                    <h2 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://caveapi.thisisxd.top/">https://caveapi.thisisxd.top</a></li>
+<li><a target="_blank" rel="noopener" href="https://caveapi.xdbot2.itcdt.top/">https://caveapi.xdbot2.itcdt.top/</a></li>
+</ul>
+<h2 id="接口列表"><a href="#接口列表" class="headerlink" title="接口列表"></a>接口列表</h2><h3 id="随机回声洞"><a href="#随机回声洞" class="headerlink" title="随机回声洞"></a>随机回声洞</h3><p>获取一个随机的回声洞内容，包括发送者和文本。</p>
+<table>
+<thead>
+<tr>
+<th>终结点</th>
+<th>返回类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/v1</code></td>
+<td><code>application/json</code> 或 <code>text/javascript</code></td>
+</tr>
+</tbody></table>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必须</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>return</code></td>
+<td>否（默认 <code>json</code>）</td>
+<td>返回类型（<code>json</code>&#x2F;<code>js</code>）</td>
+</tr>
+<tr>
+<td><code>caveIdVar</code></td>
+<td>否</td>
+<td>回声洞ID常量名（默认<code>cave_id</code>）</td>
+</tr>
+<tr>
+<td><code>caveContentVar</code></td>
+<td>否</td>
+<td>回声洞内容常量名（默认<code>cave_content</code>）</td>
+</tr>
+<tr>
+<td><code>caveSenderVar</code></td>
+<td>否</td>
+<td>回声洞投稿者常量名（默认<code>cave_sender</code>）</td>
+</tr>
+</tbody></table>
+<h4 id="返回示例"><a href="#返回示例" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://caveapi.xdbot2.itcdt.top/v1</span><br></pre></td></tr></table></figure>
+
+<p>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;id&quot;</span><span class="punctuation">:</span><span class="number">538</span><span class="punctuation">,</span><span class="attr">&quot;sender&quot;</span><span class="punctuation">:</span><span class="string">&quot;IP:127.0.0.1&quot;</span><span class="punctuation">,</span><span class="attr">&quot;content&quot;</span><span class="punctuation">:</span><span class="string">&quot;风急天高猿啸哀，尚思为国戍轮台。夜兰卧听风吹雨，神里绫华入梦来\n\n—— 哔哩哔哩·UID506743561&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>请求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://caveapi.thisisxd.top/v1?return=js</span><br></pre></td></tr></table></figure>
+
+<p>响应：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cave_id = <span class="string">&quot;984&quot;</span></span><br><span class="line"><span class="keyword">const</span> cave_content = <span class="string">&quot;“皇上，奇变偶不变”\n“可以了可以了，我知道你要说啥了，去一下隔壁那旮沓，那里边一大堆穿越者，他们正在研究马克思主义，朕这边已经准备好改革开放了，你们赶紧研究研究怎么最快的切换到中国特色社会主义，赶紧”&quot;</span></span><br><span class="line"><span class="keyword">const</span> cave_sender = <span class="string">&quot;IP:127.0.0.1&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获取回声洞图片"><a href="#获取回声洞图片" class="headerlink" title="获取回声洞图片"></a>获取回声洞图片</h3><p>获取一个指定ID的回声洞图片，以PNG格式返回。</p>
+<table>
+<thead>
+<tr>
+<th>终结点</th>
+<th>返回类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/v1/getImage</code></td>
+<td><code>image/png</code></td>
+</tr>
+</tbody></table>
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>是</td>
+<td>图片ID（回声洞内容中的 <code>[[Img:&lt;图片ID&gt;]]</code>）</td>
+</tr>
+</tbody></table>
+<h4 id="返回示例-1"><a href="#返回示例-1" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.cave.xdbot2.itcdt.top/v1/getImage?id=1679146457.165848</span><br></pre></td></tr></table></figure>
+
+<p>响应：</p>
+<p><img src="https://github.com/ITCraftDevelopmentTeam/Forum/assets/104149371/06b5ba35-fe83-4e46-bff6-af112748b9d6" alt="图片"></p>
+<h3 id="获取-API-版本"><a href="#获取-API-版本" class="headerlink" title="获取 API 版本"></a>获取 API 版本</h3><p>获取当前API的版本号，以纯文本格式返回。</p>
+<table>
+<thead>
+<tr>
+<th>终结点</th>
+<th>返回类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/v1/version</code></td>
+<td><code>text/plain</code></td>
+</tr>
+</tbody></table>
+<h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>无</p>
+<h4 id="返回示例-2"><a href="#返回示例-2" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.cave.xdbot2.itcdt.top/v1/version</span><br></pre></td></tr></table></figure>
+
+<p>响应：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v1.0.0-beta</span><br></pre></td></tr></table></figure>
+
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/202306/18/7f0ca2dd9e9e/#more" title="XDbot2 Cave API">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
+    
+    
+        <article itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                
+                <header class="kratos-entry-header">
                     <h1 class="text-center"><a class="kratos-entry-title" href="/202212/25/45092a1d5b10/" itemprop="mainEntityOfPage"><span itemprop="name headline">IT Craft QCli</span></a></h1>
                     
                     <ul class="kratos-post-meta text-center">
@@ -913,122 +1074,6 @@ log.close()</code></pre>
         </article>
     
 
-    
-    
-        <article itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-hentry kratos-post-inner clearfix index-post">
-                
-                <header class="kratos-entry-header">
-                    <h1 class="text-center"><a class="kratos-entry-title" href="/202203/15/e8f9eaafb0ae/" itemprop="mainEntityOfPage"><span itemprop="name headline">This is XiaoDeng's Tools Box Release 1.5</span></a></h1>
-                    
-                    <ul class="kratos-post-meta text-center">
-                        <li>
-                        <time datetime="2022-03-15T11:55:00.000Z" itemprop="datePublished">
-                            <i class="fa fa-calendar"></i> 2022-03-15
-                        </time>
-                        </li>
-                        
-                            <li>
-                                <i class="fa fa-folder"></i>
-                                分类于
-                                <a class="label-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
-                            </li>
-                        
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </ul>
-                </header>
-                <hr />
-                <div class="kratos-post-content" itemprop="articleBody">
-                    <!-- wp:image {"id":147,"sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
-<figure class="wp-block-image size-full is-style-default"><img src="https://www.thisisxd.tk/wp-content/uploads/2022/03/Icon4.png" alt="" class="wp-image-147"/><figcaption>TBOX 图标（By XXTG666）</figcaption></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading -->
-<h2>简介</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>TBOX是由这里是小邓编写有高度DIV性工具箱，您可以在这做一个自己的工具箱插件</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2>依赖</h2>
-<!-- /wp:heading -->
-
-<!-- wp:list -->
-<ul><li>Python (>= 3.9)</li><li>Rich</li><li>PyGame</li></ul>
-<!-- /wp:list -->
-
-<!-- wp:heading -->
-<h2>构建步骤</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>1、安装Python3</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>2、安装RICH、PYGAME</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:code -->
-<pre class="wp-block-code"><code>pip install rich pygame</code></pre>
-<!-- /wp:code -->
-
-<!-- wp:paragraph -->
-<p>3、下载，解压源代码</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>4、运行</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:code -->
-<pre class="wp-block-code"><code>python3 ./launch.py</code></pre>
-<!-- /wp:code -->
-
-<!-- wp:heading -->
-<h2>漏洞反馈</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>如果您在使用过程中遇到了bug，那么请发送log、截图和bug说明到1744793737@qq.com.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading -->
-<h2>源码下载</h2>
-<!-- /wp:heading -->
-
-<!-- wp:file {"id":146,"href":"https://www.thisisxd.tk/wp-content/uploads/2022/03/This-is-XiaoDengs-Tools-Box-Release-1.5.zip"} -->
-<div class="wp-block-file"><a id="wp-block-file--media-b531eea9-b097-492c-9154-c06ddb9eb9b5" target="_blank" rel="noopener" href="https://www.thisisxd.tk/wp-content/uploads/2022/03/This-is-XiaoDengs-Tools-Box-Release-1.5.zip">This-is-XiaoDengs-Tools-Box-Release-1.5.zip</a><a target="_blank" rel="noopener" href="https://www.thisisxd.tk/wp-content/uploads/2022/03/This-is-XiaoDengs-Tools-Box-Release-1.5.zip" class="wp-block-file__button" download aria-describedby="wp-block-file--media-b531eea9-b097-492c-9154-c06ddb9eb9b5">下载</a></div>
-<!-- /wp:file -->
-
-<!-- wp:heading -->
-<h2>温馨提示</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>此项目已一定程度上停止功能更新，再更新基本上是修bug了；document已经在写了，稍安勿躁，有不懂的的直接email作者；更多信息详见程序内关于</p>
-<!-- /wp:paragraph -->
-
-                </div>
-                <footer class="kratos-entry-footer clearfix">
-                    <div class="post-like-donate text-center clearfix">
-                        <a class="read-more" href="/202203/15/e8f9eaafb0ae/#more" title="This is XiaoDeng's Tools Box Release 1.5">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </footer>
-            </div>
-        </article>
-    
-
 
 
     <div class='text-center pagination'>
@@ -1075,7 +1120,7 @@ log.close()</code></pre>
                 文章
             </span>
             <span class="count">
-                53
+                54
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -1091,7 +1136,7 @@ log.close()</code></pre>
                 标签
             </span>
             <span class="count">
-                5
+                6
             </span>
         </a>
     </div>
@@ -1100,7 +1145,7 @@ log.close()</code></pre>
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">14</span></li></ul>
   </aside>
 
 
@@ -1109,7 +1154,7 @@ log.close()</code></pre>
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a>
+        <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/XDbot2/" style="font-size: 0.6em;">XDbot2</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a>
       </div>
   </aside>
 
@@ -1120,6 +1165,12 @@ log.close()</code></pre>
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/202306/18/7f0ca2dd9e9e/"><i class="fa  fa-book"></i> XDbot2 Cave API</a>
+            
+          
         
           
           
@@ -1146,11 +1197,7 @@ log.close()</code></pre>
           
         
           
-          
-            <a class="list-group-item" href="/202304/20/9e242b96a894/"><i class="fa  fa-book"></i> 小邓のTODO（4.20更新）</a>
             
-          
-        
           
             
           
