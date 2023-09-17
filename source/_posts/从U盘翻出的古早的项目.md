@@ -11,14 +11,14 @@ tags: 项目
 
 #### 下载地址
 
-链接:  [https://pan.baidu.com/s/1-pci\_AYao2FdzJhon0vPNw][1]
+链接:  https://pan.baidu.com/s/1-pci\_AYao2FdzJhon0vPNw
 提取码: 83sy
 
-链接:  [https://pan.baidu.com/s/10CRh1uLjSiqhYysz04AxLw][2]
+链接:  https://pan.baidu.com/s/10CRh1uLjSiqhYysz04AxLw
 提取码: c7zu
 
 #### 温馨提示
 
-其中大部分项目已停止维护，不保证其可用性；由于代码过于「古老」，请秉着「能跑就行，不能跑就算了」理念阅读这些项目的代码。不喜勿喷。
+其中大部分项目已停止维护，不保证其可用性，请秉着「能跑就行，不能跑就算了」理念阅读这些项目的代码。不建议学习代码的写法。
 
 ~~我也没认真翻过，所以我不知道会翻出什么奇奇怪怪的东西。~~
