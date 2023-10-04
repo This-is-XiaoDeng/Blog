@@ -167,6 +167,75 @@
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 
                 <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/202310/04/20546fc811c0/" itemprop="mainEntityOfPage"><span itemprop="name headline">Docker 搭建 GitHub Actions Runner 配置参考</span></a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                        <time datetime="2023-10-04T01:01:34.000Z" itemprop="datePublished">
+                            <i class="fa fa-calendar"></i> 2023-10-04
+                        </time>
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/Docker/" rel="tag">Docker</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content" itemprop="articleBody">
+                    <blockquote>
+<p>我们相信您已经对 Docker 有了一定了解，如果没有，请自行百度。以下脚本为作者自用，仅供参考，不保证绝对的通用性</p>
+</blockquote>
+<h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the github runner version</span></span><br><span class="line"><span class="keyword">ARG</span> RUNNER_VERSION=<span class="string">&quot;2.309.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># update the base packages and add a non-sudo user</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update -y &amp;&amp; apt-get upgrade -y &amp;&amp; useradd -m docker &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl libssl-dev python3 python3-pip\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">cd</span> /home/docker &amp;&amp; <span class="built_in">mkdir</span> actions-runner &amp;&amp; <span class="built_in">cd</span> actions-runner \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; curl -O -L https://github.com/actions/runner/releases/download/v<span class="variable">$&#123;RUNNER_VERSION&#125;</span>/actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; tar xzf ./actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">rm</span> ./actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">chown</span> -R docker ~docker &amp;&amp; /home/docker/actions-runner/bin/installdependencies.sh \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt remove curl libssl-dev python3 python3-pip -y \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt autoremove -y &amp;&amp; apt clean\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get update &amp;&amp; apt-get install -y sudo lsb-release &amp;&amp; apt-get clean all \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;docker ALL=(ALL:ALL)  NOPASSWD:ALL&quot;</span> &gt;&gt; /etc/sudoers \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; sudo -u docker ./config.sh --url https://github.com/&lt;YOUR_ORG_OR_REPO_HERE&gt; --token &lt;YOUR_TOKEN_HERE&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># since the config and run script for actions are not allowed to be run by root,</span></span><br><span class="line"><span class="comment"># set the user to &quot;docker&quot; so all subsequent commands are run as the docker user</span></span><br><span class="line"><span class="keyword">USER</span> docker</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /home/docker/actions-runner</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> start.sh start.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set the entrypoint to the start.sh script</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/home/docker/actions-runner/start.sh&quot;</span>]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="start-sh"><a href="#start-sh" class="headerlink" title="start.sh"></a>start.sh</h1><blockquote>
+<p>请在构建前确保此脚本有执行权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">./run.sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="reset-sh"><a href="#reset-sh" class="headerlink" title="reset.sh"></a>reset.sh</h1><blockquote>
+<p>请在开启自动重置前确认此脚本有执行权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义容器和镜像的名称</span></span><br><span class="line">CONTAINER_NAME=<span class="string">&quot;actions-runner&quot;</span></span><br><span class="line">IMAGE_NAME=<span class="string">&quot;actions-runner&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止并删除容器（如果存在）</span></span><br><span class="line">docker stop <span class="variable">$CONTAINER_NAME</span></span><br><span class="line">docker <span class="built_in">rm</span> <span class="variable">$CONTAINER_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并启动新容器</span></span><br><span class="line">docker run --name <span class="variable">$CONTAINER_NAME</span> -d <span class="variable">$IMAGE_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出提示信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The container <span class="variable">$CONTAINER_NAME</span> has been reset.&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="auto-reset-sh"><a href="#auto-reset-sh" class="headerlink" title="auto_reset.sh"></a>auto_reset.sh</h1><blockquote>
+<p>自动重置脚本，需要 root 权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>);</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./reset.sh</span><br><span class="line">    <span class="built_in">sleep</span> 86400</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/202310/04/20546fc811c0/#more" title="Docker 搭建 GitHub Actions Runner 配置参考">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
+    
+    
+        <article itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                
+                <header class="kratos-entry-header">
                     <h1 class="text-center"><a class="kratos-entry-title" href="/202301/02/144ddeb9c7f9/" itemprop="mainEntityOfPage"><span itemprop="name headline">Hexo部署指南及踩坑记录</span></a></h1>
                     
                     <ul class="kratos-post-meta text-center">
@@ -763,7 +832,7 @@ General Options:
                 文章
             </span>
             <span class="count">
-                55
+                56
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -779,7 +848,7 @@ General Options:
                 标签
             </span>
             <span class="count">
-                7
+                8
             </span>
         </a>
     </div>
@@ -788,7 +857,7 @@ General Options:
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">14</span></li></ul>
   </aside>
 
 
@@ -797,7 +866,7 @@ General Options:
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/XDbot2/" style="font-size: 0.6em;">XDbot2</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.6em;">项目</a>
+        <a href="/tags/Docker/" style="font-size: 0.6em;">Docker</a> <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/XDbot2/" style="font-size: 0.6em;">XDbot2</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.6em;">项目</a>
       </div>
   </aside>
 
@@ -808,6 +877,12 @@ General Options:
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/202310/04/20546fc811c0/"><i class="fa  fa-book"></i> Docker 搭建 GitHub Actions Runner 配置参考</a>
+            
+          
         
           
           
@@ -834,11 +909,7 @@ General Options:
           
         
           
-          
-            <a class="list-group-item" href="/202304/23/2945e8748b4a/"><i class="fa  fa-book"></i> 明天期中力（悲</a>
             
-          
-        
           
             
           
