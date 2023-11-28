@@ -143,6 +143,168 @@
             <div class="kratos-hentry kratos-post-inner clearfix index-post">
                 
                 <header class="kratos-entry-header">
+                    <h1 class="text-center"><a class="kratos-entry-title" href="/202301/02/144ddeb9c7f9/" itemprop="mainEntityOfPage"><span itemprop="name headline">Hexo部署指南及踩坑记录</span></a></h1>
+                    
+                    <ul class="kratos-post-meta text-center">
+                        <li>
+                        <time datetime="2023-01-02T09:42:12.000Z" itemprop="datePublished">
+                            <i class="fa fa-calendar"></i> 2023-01-02
+                        </time>
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-folder"></i>
+                                分类于
+                                <a class="label-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                            </li>
+                        
+                        
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                <a class="tag-none-link" href="/tags/Web/" rel="tag">Web</a>
+                            </li>
+                        
+                        
+                            <!-- 当前仅支持valine/waline自带的统计功能 -->
+                            
+                        
+                        
+                            <!-- 当前仅支持waline自带的统计功能 -->
+                            
+                        
+                    </ul>
+                </header>
+                <hr />
+                <div class="kratos-post-content" itemprop="articleBody">
+                    <h1 id="为什么选择-Hexo"><a href="#为什么选择-Hexo" class="headerlink" title="为什么选择 Hexo"></a>为什么选择 Hexo</h1><blockquote>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<p>从上面的介绍我们可以注意到这个东西：</p>
+<blockquote>
+<p>即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<p>也就是说，我们可以很容易的将基于 Hexo 搭建的博客系统运行在 Github Pages 上</p>
+<p>这意味着：能白嫖！能白嫖！（参见：<a href="https://blog.thisisxd.top/202209/%E5%A6%82%E4%BD%95%E7%94%A8%E6%9C%80%E5%B0%91%E7%9A%84%E9%92%B1%E5%BC%80%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%9F/">《如何用最少的钱开一个网站？》</a>）</p>
+<h1 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h1><p>您需要先准备以下环境：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>（&gt;&#x3D;12）</li>
+<li>Git</li>
+</ol>
+<p>使用 npm 安装 hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># Linux</span></span><br><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>之后，使用 <code>hexo init</code> 命令初始化您的博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init [目录名称]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果不传入<code>[目录名称]</code>参数，hexo-cli 在当前目录下初始化博客</p>
+</blockquote>
+<p>创建完成后，目标目录看起来像这样</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<p>您需要按自己需求修改 hexo 站点配置（<code>_config.yml</code>）文件，参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">配置 | Hexo</a></p>
+<p>一般来说，您只需要修改以下配置项：</p>
+<ol>
+<li><code>title</code>：站点标题</li>
+<li><code>subtitle</code>：站点副标题</li>
+<li><code>author</code>：作者名，也就是您的名字</li>
+<li><code>language</code>：语言，可直接设为<code>zh-CN</code></li>
+<li><code>timezone</code>：时区，可直接设为<code>Asia/Shanghai</code></li>
+<li><code>url</code>：站点网址</li>
+</ol>
+<div class="panel panel-info">
+    <div class="panel-title">测试您的配置</div>
+    <div class="panel-body">
+        <p>您可以在站点根目录使用<code>hexo server</code>指令启动 hexo 自带的服务器，之后使用浏览器访问 <code>127.0.0.1:4000</code> 查看您的更改</p>
+
+    </div>
+    </div>
+
+<h1 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h1><p>您可以前往<a target="_blank" rel="noopener" href="https://hexo.io/themes/">这里</a>选择您的主题</p>
+<p>部分主题可以直接用 npm 安装</p>
+<p>部分主题需要您下载压缩包并解压到<code>themes</code>目录下</p>
+<p>随后，修改 hexo 站点配置，将<code>them</code>项改为您的主题</p>
+<blockquote>
+<p>部分主题可能会拥有自己的配置文件，主题配置在博客根目录下的<code>_config.主题名.yml</code>内（可能需要您手动复制&#x2F;创建），具体参见主题的 README.md 文件</p>
+</blockquote>
+<h1 id="部署到-github"><a href="#部署到-github" class="headerlink" title="部署到 github"></a>部署到 github</h1><p>具体部署方法详见<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">在 Github 上部署 Hexo</a></p>
+<div class="panel panel-warning">
+    <div class="panel-title">注意事项</div>
+    <div class="panel-body">
+        <p>如果您是使用 git 创建仓库或您修改了设置，您的仓库的默认分支名称可能为<code>master</code>或其他而不是<code>main</code></p>
+<p>请修推送改指令为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin 您分支的名称，如master</span><br></pre></td></tr></table></figure>
+
+<p>和<code>.github/workflows/pages.yml</code>的<code>on.push.branches</code>项</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">您的分支名称，如master</span> <span class="comment"># default branch</span></span><br></pre></td></tr></table></figure>
+
+<p>在每次推送后，github 会自动执行编译任务</p>
+<blockquote>
+<p>如果您的仓库名不是<em>用户名.github.io</em>，默认请在<code>用户名.github.io/仓库名</code>访问您的博客</p>
+</blockquote>
+
+    </div>
+    </div>
+
+
+
+<h1 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h1><p>因为 Hexo 是静态，所以 Hexo 默认不带有评论</p>
+<p>可以使用<code>gitalk</code>、<code>gitment</code>等将issue作为您博客的评论，具体参考其项目主页</p>
+<p>但是此处有大坑需要注意</p>
+<p>上文提到的两个评论插件会要求您申请 OAuth APP以登录github帐号，进入 <code>Strring&gt;Developer strring</code> 创建</p>
+<ul>
+<li><code>Application name</code>：您的站点名</li>
+<li><code>Homepage URL</code>：您的博客首页URL</li>
+<li><code>Authorization callback URL</code>：回调URL</li>
+</ul>
+<p>回调URL 需要填您的博客所使用的协议（一般是<code>https://</code>）+所在的域名（一般不含二级域名）</p>
+<p>比如本博客的主页地址为：<code>https://blog.thisisxd.top/index.html</code></p>
+<p>则 回调URL 为：<code>https://thisisxd.top</code></p>
+<p>如果 回调URL 错误，登录就会返回<code>error</code></p>
+<blockquote>
+<p>具体多试试，不成功可以在下面发评论问</p>
+</blockquote>
+<div class="panel panel-warning">
+    <div class="panel-title">常见异常</div>
+    <div class="panel-body">
+        <h2 id="Error-Not-Found"><a href="#Error-Not-Found" class="headerlink" title="Error: Not Found"></a>Error: Not Found</h2><p>此错误可能是由于以下原因引起的：</p>
+<ol>
+<li>仓库未公开</li>
+<li>仓库未开启issue</li>
+<li>仓库未初始化issue</li>
+</ol>
+<h3 id="初始化-issue"><a href="#初始化-issue" class="headerlink" title="初始化 issue"></a>初始化 issue</h3><ol>
+<li>在仓库设置中，勾选<code>Issue</code>，保存并刷新页面</li>
+<li>打开仓库<code>Issues</code>，点击<code>New Issue</code>，编辑内容并提交，即可初始化<code>Issue</code></li>
+</ol>
+<h2 id="Error-Validation-Failed"><a href="#Error-Validation-Failed" class="headerlink" title="Error: Validation Failed."></a>Error: Validation Failed.</h2><p>此错误可能是由于以下原因引起的</p>
+<ol>
+<li>文章标题过长导致url过长</li>
+</ol>
+<p>您可以 [修改][8] 文章 [永久链接][7] 以消除此错误</p>
+
+    </div>
+    </div>
+
+
+<h1 id="建议阅读"><a href="#建议阅读" class="headerlink" title="建议阅读"></a>建议阅读</h1><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
+
+                </div>
+                <footer class="kratos-entry-footer clearfix">
+                    <div class="post-like-donate text-center clearfix">
+                        <a class="read-more" href="/202301/02/144ddeb9c7f9/#more" title="Hexo部署指南及踩坑记录">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    
+
+    
+    
+        <article itemscope itemtype="https://schema.org/Article">
+            <div class="kratos-hentry kratos-post-inner clearfix index-post">
+                
+                <header class="kratos-entry-header">
                     <h1 class="text-center"><a class="kratos-entry-title" href="/202301/02/c9333d697067/" itemprop="mainEntityOfPage"><span itemprop="name headline">KOD Cloud 即将关闭</span></a></h1>
                     
                     <ul class="kratos-post-meta text-center">
@@ -670,58 +832,6 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
         </article>
     
 
-    
-    
-        <article itemscope itemtype="https://schema.org/Article">
-            <div class="kratos-hentry kratos-post-inner clearfix index-post">
-                
-                <header class="kratos-entry-header">
-                    <h1 class="text-center"><a class="kratos-entry-title" href="/202210/15/ef7296f2711d/" itemprop="mainEntityOfPage"><span itemprop="name headline">喜报：XDbot 寄了</span></a></h1>
-                    
-                    <ul class="kratos-post-meta text-center">
-                        <li>
-                        <time datetime="2022-10-15T03:45:14.000Z" itemprop="datePublished">
-                            <i class="fa fa-calendar"></i> 2022-10-15
-                        </time>
-                        </li>
-                        
-                            <li>
-                                <i class="fa fa-folder"></i>
-                                分类于
-                                <a class="label-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a>
-                            </li>
-                        
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </ul>
-                </header>
-                <hr />
-                <div class="kratos-post-content" itemprop="articleBody">
-                    <p>都别说了，看图吧……</p>
-<p><img src="/Images/2382257823.png" alt="2022-10-15_11-33.png"></p>
-<h2 id="公告"><a href="#公告" class="headerlink" title="公告"></a>公告</h2><p>因为 fzz 将 XDbot 用于违法违规用途，导致 XDbot帐号于 2022年10月15日 9:30:04 被冻结七天，已无法登录。期间 XDbot 将不会提供包括 回声洞、聊天排名、人品 在内的所有服务，恢复时间另行通知</p>
-<h3 id="受影响的指令："><a href="#受影响的指令：" class="headerlink" title="受影响的指令："></a>受影响的指令：</h3><p>Core：(ALL)<br>Plus：(ALL)</p>
-<h2 id="2022-10-21-修复进展"><a href="#2022-10-21-修复进展" class="headerlink" title="2022-10-21 修复进展"></a>2022-10-21 修复进展</h2><p>XDbot 几日前已经完全迁移到新号(340***2590)</p>
-<p>目前所有功能已恢复</p>
-<p>老号预计在近几天解封</p>
-
-                </div>
-                <footer class="kratos-entry-footer clearfix">
-                    <div class="post-like-donate text-center clearfix">
-                        <a class="read-more" href="/202210/15/ef7296f2711d/#more" title="喜报：XDbot 寄了">继续阅读 <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </footer>
-            </div>
-        </article>
-    
-
 
 
     <div class='text-center pagination'>
@@ -768,7 +878,7 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
                 文章
             </span>
             <span class="count">
-                56
+                57
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -784,7 +894,7 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
                 标签
             </span>
             <span class="count">
-                8
+                9
             </span>
         </a>
     </div>
@@ -793,7 +903,7 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">14</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B0%8F%E8%AE%B0/">小记</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">15</span></li></ul>
   </aside>
 
 
@@ -802,7 +912,7 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/Docker/" style="font-size: 0.6em;">Docker</a> <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/XDbot2/" style="font-size: 0.6em;">XDbot2</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.6em;">项目</a>
+        <a href="/tags/Bot/" style="font-size: 0.6em;">Bot</a> <a href="/tags/Docker/" style="font-size: 0.6em;">Docker</a> <a href="/tags/TODO/" style="font-size: 0.6em;">TODO</a> <a href="/tags/Web/" style="font-size: 0.6em;">Web</a> <a href="/tags/XDbot2/" style="font-size: 0.6em;">XDbot2</a> <a href="/tags/%E5%9B%BE%E7%89%87%E5%88%86%E4%BA%AB/" style="font-size: 0.6em;">图片分享</a> <a href="/tags/%E6%B5%81%E6%B0%B4%E8%B4%A6/" style="font-size: 0.8em;">流水账</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 0.6em;">转载</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.6em;">项目</a>
       </div>
   </aside>
 
@@ -813,6 +923,12 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/202311/28/64a408294a99/"><i class="fa  fa-book"></i> OneDisc: Discord 平台的 OneBot 实现</a>
+            
+          
         
           
           
@@ -839,11 +955,7 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
           
         
           
-          
-            <a class="list-group-item" href="/202304/27/8350967464b1/"><i class="fa  fa-book"></i> [图片分享] =）</a>
             
-          
-        
           
             
           

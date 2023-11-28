@@ -6,7 +6,7 @@
   <link href="https://blog.thisisxd.top/atom.xml" rel="self"/>
   
   <link href="https://blog.thisisxd.top/"/>
-  <updated>2023-11-07T15:16:43.624Z</updated>
+  <updated>2023-11-28T13:14:17.819Z</updated>
   <id>https://blog.thisisxd.top/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OneDisc: Discord 平台的 OneBot 实现</title>
+    <link href="https://blog.thisisxd.top/202311/28/64a408294a99/"/>
+    <id>https://blog.thisisxd.top/202311/28/64a408294a99/</id>
+    <published>2023-11-28T13:05:26.000Z</published>
+    <updated>2023-11-28T13:14:17.819Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>文档: <a href="https://onedisc.itcdt.top/">https://onedisc.itcdt.top/</a></li><li>下载: <a href="https://onedisc.itcdt.top/download">https://onedisc.itcdt.top/download</a></li><li>讨论: <a href="https://discord.gg/SpSvbUfsY8">Discord</a></li></ul><h1 id="什么是-OneDisc"><a href="#什么是-OneDisc" class="headerlink" title="什么是 OneDisc?"></a>什么是 OneDisc?</h1><p>OneDisc 是一个 Discord 平台的 OneBot 实现，兼容 OneBot V11、OneBot V12 协议。</p><p>仅需简单配置，无需修改代码，即可在 Discord 上使用您的 OneBot 机器人！</p><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>见 <a href="https://onedisc.itcdt.top/quickstart">快速开始</a>。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;文档: &lt;a href=&quot;https://onedisc.itcdt.top/&quot;&gt;https://onedisc.itcdt.top/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载: &lt;a href=&quot;https://onedisc.itcdt.top/download&quot;&gt;h</summary>
+      
+    
+    
+    
+    <category term="项目" scheme="https://blog.thisisxd.top/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="Bot" scheme="https://blog.thisisxd.top/tags/Bot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker 搭建 GitHub Actions Runner 配置参考</title>
     <link href="https://blog.thisisxd.top/202310/04/20546fc811c0/"/>
     <id>https://blog.thisisxd.top/202310/04/20546fc811c0/</id>
     <published>2023-10-04T01:01:34.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>我们相信您已经对 Docker 有了一定了解，如果没有，请自行百度。以下脚本为作者自用，仅供参考，不保证绝对的通用性</p></blockquote><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the github runner version</span></span><br><span class="line"><span class="keyword">ARG</span> RUNNER_VERSION=<span class="string">&quot;2.309.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># update the base packages and add a non-sudo user</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update -y &amp;&amp; apt-get upgrade -y &amp;&amp; useradd -m docker &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl libssl-dev python3 python3-pip\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">cd</span> /home/docker &amp;&amp; <span class="built_in">mkdir</span> actions-runner &amp;&amp; <span class="built_in">cd</span> actions-runner \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; curl -O -L https://github.com/actions/runner/releases/download/v<span class="variable">$&#123;RUNNER_VERSION&#125;</span>/actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; tar xzf ./actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">rm</span> ./actions-runner-linux-x64-<span class="variable">$&#123;RUNNER_VERSION&#125;</span>.tar.gz\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">chown</span> -R docker ~docker &amp;&amp; /home/docker/actions-runner/bin/installdependencies.sh \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt remove curl libssl-dev python3 python3-pip -y \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt autoremove -y &amp;&amp; apt clean\</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get update &amp;&amp; apt-get install -y sudo lsb-release &amp;&amp; apt-get clean all \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;docker ALL=(ALL:ALL)  NOPASSWD:ALL&quot;</span> &gt;&gt; /etc/sudoers \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; sudo -u docker ./config.sh --url https://github.com/&lt;YOUR_ORG_OR_REPO_HERE&gt; --token &lt;YOUR_TOKEN_HERE&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># since the config and run script for actions are not allowed to be run by root,</span></span><br><span class="line"><span class="comment"># set the user to &quot;docker&quot; so all subsequent commands are run as the docker user</span></span><br><span class="line"><span class="keyword">USER</span> docker</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /home/docker/actions-runner</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> start.sh start.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set the entrypoint to the start.sh script</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/home/docker/actions-runner/start.sh&quot;</span>]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="start-sh"><a href="#start-sh" class="headerlink" title="start.sh"></a>start.sh</h1><blockquote><p>请在构建前确保此脚本有执行权限</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">./run.sh</span><br></pre></td></tr></table></figure><h1 id="reset-sh"><a href="#reset-sh" class="headerlink" title="reset.sh"></a>reset.sh</h1><blockquote><p>请在开启自动重置前确认此脚本有执行权限</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义容器和镜像的名称</span></span><br><span class="line">CONTAINER_NAME=<span class="string">&quot;actions-runner&quot;</span></span><br><span class="line">IMAGE_NAME=<span class="string">&quot;actions-runner&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止并删除容器（如果存在）</span></span><br><span class="line">docker stop <span class="variable">$CONTAINER_NAME</span></span><br><span class="line">docker <span class="built_in">rm</span> <span class="variable">$CONTAINER_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并启动新容器</span></span><br><span class="line">docker run --name <span class="variable">$CONTAINER_NAME</span> -d <span class="variable">$IMAGE_NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出提示信息</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The container <span class="variable">$CONTAINER_NAME</span> has been reset.&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="auto-reset-sh"><a href="#auto-reset-sh" class="headerlink" title="auto_reset.sh"></a>auto_reset.sh</h1><blockquote><p>自动重置脚本，需要 root 权限</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>);</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./reset.sh</span><br><span class="line">    <span class="built_in">sleep</span> 86400</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -48,7 +74,7 @@
     <link href="https://blog.thisisxd.top/202309/17/313a1a8325e3/"/>
     <id>https://blog.thisisxd.top/202309/17/313a1a8325e3/</id>
     <published>2023-09-17T11:23:51.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p><del>没错，我还活着</del></p></blockquote><p>今天在整理 U 盘的时候突然翻出来了一些很久以前写的项目，因为太闲所以发出来。</p><h4 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h4><p>链接:  <a href="https://pan.baidu.com/s/1-pci/_AYao2FdzJhon0vPNw">https://pan.baidu.com/s/1-pci\_AYao2FdzJhon0vPNw</a><br>提取码: 83sy</p><p>链接:  <a href="https://pan.baidu.com/s/10CRh1uLjSiqhYysz04AxLw">https://pan.baidu.com/s/10CRh1uLjSiqhYysz04AxLw</a><br>提取码: c7zu</p><h4 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h4><p>其中大部分项目已停止维护，不保证其可用性，请秉着「能跑就行，不能跑就算了」理念阅读这些项目的代码。不建议学习代码的写法。</p><p><del>我也没认真翻过，所以我不知道会翻出什么奇奇怪怪的东西。</del></p>]]></content>
     
@@ -76,7 +102,7 @@
     <link href="https://blog.thisisxd.top/202306/18/7f0ca2dd9e9e/"/>
     <id>https://blog.thisisxd.top/202306/18/7f0ca2dd9e9e/</id>
     <published>2023-06-18T07:18:43.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<h2 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h2><ul><li><a href="https://caveapi.thisisxd.top/">https://caveapi.thisisxd.top</a></li><li><a href="https://caveapi.xdbot2.itcdt.top/">https://caveapi.xdbot2.itcdt.top/</a></li></ul><h2 id="接口列表"><a href="#接口列表" class="headerlink" title="接口列表"></a>接口列表</h2><h3 id="随机回声洞"><a href="#随机回声洞" class="headerlink" title="随机回声洞"></a>随机回声洞</h3><p>获取一个随机的回声洞内容，包括发送者和文本。</p><table><thead><tr><th>终结点</th><th>返回类型</th></tr></thead><tbody><tr><td><code>/v1</code></td><td><code>application/json</code> 或 <code>text/javascript</code></td></tr></tbody></table><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><table><thead><tr><th>参数</th><th>必须</th><th>说明</th></tr></thead><tbody><tr><td><code>return</code></td><td>否（默认 <code>json</code>）</td><td>返回类型（<code>json</code>&#x2F;<code>js</code>）</td></tr><tr><td><code>caveIdVar</code></td><td>否</td><td>回声洞ID常量名（默认<code>cave_id</code>）</td></tr><tr><td><code>caveContentVar</code></td><td>否</td><td>回声洞内容常量名（默认<code>cave_content</code>）</td></tr><tr><td><code>caveSenderVar</code></td><td>否</td><td>回声洞投稿者常量名（默认<code>cave_sender</code>）</td></tr></tbody></table><h4 id="返回示例"><a href="#返回示例" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://caveapi.xdbot2.itcdt.top/v1</span><br></pre></td></tr></table></figure><p>响应：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;id&quot;</span><span class="punctuation">:</span><span class="number">538</span><span class="punctuation">,</span><span class="attr">&quot;sender&quot;</span><span class="punctuation">:</span><span class="string">&quot;IP:127.0.0.1&quot;</span><span class="punctuation">,</span><span class="attr">&quot;content&quot;</span><span class="punctuation">:</span><span class="string">&quot;风急天高猿啸哀，尚思为国戍轮台。夜兰卧听风吹雨，神里绫华入梦来\n\n—— 哔哩哔哩·UID506743561&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>请求：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://caveapi.thisisxd.top/v1?return=js</span><br></pre></td></tr></table></figure><p>响应：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cave_id = <span class="string">&quot;984&quot;</span></span><br><span class="line"><span class="keyword">const</span> cave_content = <span class="string">&quot;“皇上，奇变偶不变”\n“可以了可以了，我知道你要说啥了，去一下隔壁那旮沓，那里边一大堆穿越者，他们正在研究马克思主义，朕这边已经准备好改革开放了，你们赶紧研究研究怎么最快的切换到中国特色社会主义，赶紧”&quot;</span></span><br><span class="line"><span class="keyword">const</span> cave_sender = <span class="string">&quot;IP:127.0.0.1&quot;</span></span><br></pre></td></tr></table></figure><h3 id="获取回声洞图片"><a href="#获取回声洞图片" class="headerlink" title="获取回声洞图片"></a>获取回声洞图片</h3><p>获取一个指定ID的回声洞图片，以PNG格式返回。</p><table><thead><tr><th>终结点</th><th>返回类型</th></tr></thead><tbody><tr><td><code>/v1/getImage</code></td><td><code>image/png</code></td></tr></tbody></table><h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><table><thead><tr><th>参数</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>id</code></td><td>是</td><td>图片ID（回声洞内容中的 <code>[[Img:&lt;图片ID&gt;]]</code>）</td></tr></tbody></table><h4 id="返回示例-1"><a href="#返回示例-1" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.cave.xdbot2.itcdt.top/v1/getImage?id=1679146457.165848</span><br></pre></td></tr></table></figure><p>响应：</p><p><img src="https://github.com/ITCraftDevelopmentTeam/Forum/assets/104149371/06b5ba35-fe83-4e46-bff6-af112748b9d6" alt="图片"></p><h3 id="获取-API-版本"><a href="#获取-API-版本" class="headerlink" title="获取 API 版本"></a>获取 API 版本</h3><p>获取当前API的版本号，以纯文本格式返回。</p><table><thead><tr><th>终结点</th><th>返回类型</th></tr></thead><tbody><tr><td><code>/v1/version</code></td><td><code>text/plain</code></td></tr></tbody></table><h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>无</p><h4 id="返回示例-2"><a href="#返回示例-2" class="headerlink" title="返回示例"></a>返回示例</h4><p>请求：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.cave.xdbot2.itcdt.top/v1/version</span><br></pre></td></tr></table></figure><p>响应：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v1.0.0-beta</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -101,7 +127,7 @@
     <link href="https://blog.thisisxd.top/202304/30/243c1e71bf84/"/>
     <id>https://blog.thisisxd.top/202304/30/243c1e71bf84/</id>
     <published>2023-04-30T13:07:10.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.819Z</updated>
     
     <content type="html"><![CDATA[<div class="alert alert-info"><div class="icon"><i class="fa fa-info"></i></div><div class="text"><p>以下内容来自 <a href="https://www.mcrjun.cn/archives/484">https://www.mcrjun.cn/archives/484</a></p></div></div><p><strong>本文中提到的所有 Minecraft 均指的是由 Microsoft Corporation 运营的一款游戏，与网易公司代理的游戏《我的世界》无关联</strong></p><p>近日部分中国玩家在自己的 Xbox 上打开 Minecraft 时收到了一条通知：「在您所在的地区内，我们即将无法支持此设备。」<br>Minecraft For Windows&#x2F;Xbox 现在也已经无法从中国大陆购买，这可能代表着 Minecraft 即将停止在中国大陆的服务</p><p>部分中国玩家在自己的 Xbox 上打开 Minecraft 时收到了这样的通知：</p><p><img src="https://blog.thisisxd.top/Images/1106cfa7-194e-41b4-a74f-835d8a302138.webp"></p><p>该通知提到：最终版本发布后，您的地区<strong>无法再联网购买内容，但仍可下载已购项目或本地游玩，设备上的 Realm 服务器在 2023 年 9 月 30 日之后会停服</strong></p><p>目前只有 Xbox 用户收到此通知，Windows 玩家则未收到这个通知，但是这段提示已经可以在 Minecraft For Windows 的数据文件中找到：</p><p><img src="https://blog.thisisxd.top/Images/6e0ee316-5b12-4af2-8593-f1697e1b07bb.webp"></p><p>现在尝试在官网购买 Minecraft，如果你的 IP 地址在中国境内，付款时则会出现报错，无法购买，在官网查询 Minecraft 相关信息时，也出现了 502 报错：</p><p><img src="https://blog.thisisxd.top/Images/1486e443-f8e8-4b25-90f8-811e6e45a409.webp"></p><p>Microsoft Store 目前也无法购买 Minecraft，但是已经购买 Minecraft 的玩家仍然可以下载，<strong>如果你担心未来无法正常更新 Minecraft，建议将 Microsoft 账户地区设置为中国大陆以外的地区</strong></p><p>虽然 Microsoft 尚未发出官方通知，但是根据 Xbox 上的提示以及游戏数据中的文字可以推测，国际版的 Minecraft 可能无法再在中国大陆更新了。</p><p>此前，Microsoft&#x2F;Mojang 运营的 Minecraft 虽然可以在中国下载，但是未按照国家相关要求添加防沉迷等保护措施，而网易代理的《我的世界》遵守了这一规定，这可能是 Minecraft 发出此通知的一个原因。</p><div class="alert alert-warning"><div class="icon"><i class="fa fa-warning"></i></div><div class="text"><p>以下内容不属于 <a href="https://www.mcrjun.cn/archives/484">https://www.mcrjun.cn/archives/484</a></p></div></div><p>也有一定迹象表明，Minecraft 本次 “锁区” 很可能只是一个临时性的操作，一段时间过后可能会恢复正常。</p>]]></content>
     
@@ -125,7 +151,7 @@
     <link href="https://blog.thisisxd.top/202304/27/8350967464b1/"/>
     <id>https://blog.thisisxd.top/202304/27/8350967464b1/</id>
     <published>2023-04-27T09:38:59.000Z</published>
-    <updated>2023-11-07T15:16:43.628Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://blog.thisisxd.top/Images/P1030098.JPG" alt="↑我同学，我能笑两年半（"></p>]]></content>
     
@@ -150,7 +176,7 @@
     <link href="https://blog.thisisxd.top/202304/23/2945e8748b4a/"/>
     <id>https://blog.thisisxd.top/202304/23/2945e8748b4a/</id>
     <published>2023-04-23T10:56:37.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p>明天期中力（悲</p><p>u1s1，是哪个大聪明把道法和语文这两个要背最多的排在一个上午的……</p>]]></content>
     
@@ -176,7 +202,7 @@
     <link href="https://blog.thisisxd.top/202304/21/9ce07bfe4c47/"/>
     <id>https://blog.thisisxd.top/202304/21/9ce07bfe4c47/</id>
     <published>2023-04-21T14:03:09.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p>因为一些原因原来的评论功能寄了</p><p>我将博客评论区换成了 DISQUS</p><p>（现在应该能正常显示了）</p>]]></content>
     
@@ -203,7 +229,7 @@
     <link href="https://blog.thisisxd.top/202304/20/9e242b96a894/"/>
     <id>https://blog.thisisxd.top/202304/20/9e242b96a894/</id>
     <published>2023-04-20T13:41:00.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>发个帖子证明我还活着，很大一部分内容估计要等期中考之后完成</p></blockquote><ul><li><input disabled="" type="checkbox"> 流水账</li><li><input disabled="" type="checkbox"> XDbot2 Issues</li><li><input disabled="" type="checkbox"> 重写个 nb-cli</li></ul>]]></content>
     
@@ -232,7 +258,7 @@
     <link href="https://blog.thisisxd.top/202301/16/c736f03a7ad1/"/>
     <id>https://blog.thisisxd.top/202301/16/c736f03a7ad1/</id>
     <published>2023-01-16T09:06:34.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/Images/20230116170054.png" alt="咕咕咕？咕咕……"></p>]]></content>
     
@@ -255,7 +281,7 @@
     <link href="https://blog.thisisxd.top/202301/02/144ddeb9c7f9/"/>
     <id>https://blog.thisisxd.top/202301/02/144ddeb9c7f9/</id>
     <published>2023-01-02T09:42:12.000Z</published>
-    <updated>2023-11-07T15:16:43.620Z</updated>
+    <updated>2023-11-28T13:14:17.819Z</updated>
     
     <content type="html"><![CDATA[<h1 id="为什么选择-Hexo"><a href="#为什么选择-Hexo" class="headerlink" title="为什么选择 Hexo"></a>为什么选择 Hexo</h1><blockquote><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p></blockquote><p>从上面的介绍我们可以注意到这个东西：</p><blockquote><p>即可利用靓丽的主题生成静态网页。</p></blockquote><p>也就是说，我们可以很容易的将基于 Hexo 搭建的博客系统运行在 Github Pages 上</p><p>这意味着：能白嫖！能白嫖！（参见：<a href="https://blog.thisisxd.top/202209/%E5%A6%82%E4%BD%95%E7%94%A8%E6%9C%80%E5%B0%91%E7%9A%84%E9%92%B1%E5%BC%80%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%9F/">《如何用最少的钱开一个网站？》</a>）</p><h1 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h1><p>您需要先准备以下环境：</p><ol><li><a href="https://nodejs.org/">Node.js</a>（&gt;&#x3D;12）</li><li>Git</li></ol><p>使用 npm 安装 hexo</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># Linux</span></span><br><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>之后，使用 <code>hexo init</code> 命令初始化您的博客</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init [目录名称]</span><br></pre></td></tr></table></figure><blockquote><p>如果不传入<code>[目录名称]</code>参数，hexo-cli 在当前目录下初始化博客</p></blockquote><p>创建完成后，目标目录看起来像这样</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure><p>您需要按自己需求修改 hexo 站点配置（<code>_config.yml</code>）文件，参考 <a href="https://hexo.io/zh-cn/docs/configuration">配置 | Hexo</a></p><p>一般来说，您只需要修改以下配置项：</p><ol><li><code>title</code>：站点标题</li><li><code>subtitle</code>：站点副标题</li><li><code>author</code>：作者名，也就是您的名字</li><li><code>language</code>：语言，可直接设为<code>zh-CN</code></li><li><code>timezone</code>：时区，可直接设为<code>Asia/Shanghai</code></li><li><code>url</code>：站点网址</li></ol><div class="panel panel-info">    <div class="panel-title">测试您的配置</div>    <div class="panel-body">        <p>您可以在站点根目录使用<code>hexo server</code>指令启动 hexo 自带的服务器，之后使用浏览器访问 <code>127.0.0.1:4000</code> 查看您的更改</p>    </div>    </div><h1 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h1><p>您可以前往<a href="https://hexo.io/themes/">这里</a>选择您的主题</p><p>部分主题可以直接用 npm 安装</p><p>部分主题需要您下载压缩包并解压到<code>themes</code>目录下</p><p>随后，修改 hexo 站点配置，将<code>them</code>项改为您的主题</p><blockquote><p>部分主题可能会拥有自己的配置文件，主题配置在博客根目录下的<code>_config.主题名.yml</code>内（可能需要您手动复制&#x2F;创建），具体参见主题的 README.md 文件</p></blockquote><h1 id="部署到-github"><a href="#部署到-github" class="headerlink" title="部署到 github"></a>部署到 github</h1><p>具体部署方法详见<a href="https://hexo.io/zh-cn/docs/github-pages">在 Github 上部署 Hexo</a></p><div class="panel panel-warning">    <div class="panel-title">注意事项</div>    <div class="panel-body">        <p>如果您是使用 git 创建仓库或您修改了设置，您的仓库的默认分支名称可能为<code>master</code>或其他而不是<code>main</code></p><p>请修推送改指令为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin 您分支的名称，如master</span><br></pre></td></tr></table></figure><p>和<code>.github/workflows/pages.yml</code>的<code>on.push.branches</code>项</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">您的分支名称，如master</span> <span class="comment"># default branch</span></span><br></pre></td></tr></table></figure><p>在每次推送后，github 会自动执行编译任务</p><blockquote><p>如果您的仓库名不是<em>用户名.github.io</em>，默认请在<code>用户名.github.io/仓库名</code>访问您的博客</p></blockquote>    </div>    </div><h1 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h1><p>因为 Hexo 是静态，所以 Hexo 默认不带有评论</p><p>可以使用<code>gitalk</code>、<code>gitment</code>等将issue作为您博客的评论，具体参考其项目主页</p><p>但是此处有大坑需要注意</p><p>上文提到的两个评论插件会要求您申请 OAuth APP以登录github帐号，进入 <code>Strring&gt;Developer strring</code> 创建</p><ul><li><code>Application name</code>：您的站点名</li><li><code>Homepage URL</code>：您的博客首页URL</li><li><code>Authorization callback URL</code>：回调URL</li></ul><p>回调URL 需要填您的博客所使用的协议（一般是<code>https://</code>）+所在的域名（一般不含二级域名）</p><p>比如本博客的主页地址为：<code>https://blog.thisisxd.top/index.html</code></p><p>则 回调URL 为：<code>https://thisisxd.top</code></p><p>如果 回调URL 错误，登录就会返回<code>error</code></p><blockquote><p>具体多试试，不成功可以在下面发评论问</p></blockquote><div class="panel panel-warning">    <div class="panel-title">常见异常</div>    <div class="panel-body">        <h2 id="Error-Not-Found"><a href="#Error-Not-Found" class="headerlink" title="Error: Not Found"></a>Error: Not Found</h2><p>此错误可能是由于以下原因引起的：</p><ol><li>仓库未公开</li><li>仓库未开启issue</li><li>仓库未初始化issue</li></ol><h3 id="初始化-issue"><a href="#初始化-issue" class="headerlink" title="初始化 issue"></a>初始化 issue</h3><ol><li>在仓库设置中，勾选<code>Issue</code>，保存并刷新页面</li><li>打开仓库<code>Issues</code>，点击<code>New Issue</code>，编辑内容并提交，即可初始化<code>Issue</code></li></ol><h2 id="Error-Validation-Failed"><a href="#Error-Validation-Failed" class="headerlink" title="Error: Validation Failed."></a>Error: Validation Failed.</h2><p>此错误可能是由于以下原因引起的</p><ol><li>文章标题过长导致url过长</li></ol><p>您可以 [修改][8] 文章 [永久链接][7] 以消除此错误</p>    </div>    </div><h1 id="建议阅读"><a href="#建议阅读" class="headerlink" title="建议阅读"></a>建议阅读</h1><p><a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>]]></content>
     
@@ -280,7 +306,7 @@
     <link href="https://blog.thisisxd.top/202301/02/c9333d697067/"/>
     <id>https://blog.thisisxd.top/202301/02/c9333d697067/</id>
     <published>2023-01-02T05:48:46.000Z</published>
-    <updated>2023-11-07T15:16:43.620Z</updated>
+    <updated>2023-11-28T13:14:17.819Z</updated>
     
     <content type="html"><![CDATA[<p>各位用户：</p><p>  参考 <a href="https://www.itcdt.top/">IT Craft Development Team</a> 建议，因为经费不足，<a href="https://kod.thisisxd.top/">KOD云盘</a> 综合表现也没有达到预期效果，所以决定关闭 <a href="https://kod.thisisxd.top/">KOD云盘</a> 以节省服务器开支</p><p>  <a href="https://kod.thisisxd.top/">KOD云盘</a> 将随主机到期（大概为2023年1月末）而停止运行，我们不会备份云盘内储存的其他文件，请做好备份！</p><p>2023年01月02日</p>]]></content>
     
@@ -303,7 +329,7 @@
     <link href="https://blog.thisisxd.top/202212/25/45092a1d5b10/"/>
     <id>https://blog.thisisxd.top/202212/25/45092a1d5b10/</id>
     <published>2022-12-25T12:36:39.000Z</published>
-    <updated>2023-11-07T15:16:43.620Z</updated>
+    <updated>2023-11-28T13:14:17.819Z</updated>
     
     <content type="html"><![CDATA[<table><thead><tr><th>属性</th><th>值</th></tr></thead><tbody><tr><td>仓库名</td><td><a href="https://github.com/This-is-XiaoDeng/qcli">This-is-XiaoDeng&#x2F;qcli</a></td></tr><tr><td>简介</td><td>能运行在 Linux TTY 中的第三方 QQ</td></tr><tr><td>许可证</td><td>GPL-3.0 license</td></tr></tbody></table><h1 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h1><p>一款能正常运行在 Linux TTY 中的第三方 QQ</p><h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ol><li>克隆仓库</li><li>安装 Python3</li><li>安装依赖库</li><li>修改程序配置</li><li>启动程序</li></ol><p><strong>提示：如果您不是<code>Linux x86_64</code>系统，需要您自行前往<a href="https://github.com/This-is-XiaoDeng/qcli">go-cqhttp官网</a>下载对应系统的<code>go-cqhttp</code>并放入<code>go-cqhttp/</code>中！</strong></p><h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><pre><code>IT Craft QCLICopyright (C) 2022 This is XiaoDengThis program is free software: you can redistribute it and/or modifyit under the terms of the GNU General Public License as published bythe Free Software Foundation, either version 3 of the License, or(at your option) any later version.This program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty ofMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See theGNU General Public License for more details.You should have received a copy of the GNU General Public Licensealong with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</code></pre><p><a href="https://github.com/This-is-XiaoDeng/qcli">View on GitHub</a></p>]]></content>
     
@@ -334,7 +360,7 @@
     <link href="https://blog.thisisxd.top/202212/16/06ce8bd67e90/"/>
     <id>https://blog.thisisxd.top/202212/16/06ce8bd67e90/</id>
     <published>2022-12-16T15:52:30.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p>可能最近已经有人发现 XDCloud 访问会出现<code>Origin is unreachable Error code 523</code>错误。经排查发现，XDCloud 主机又双叒叕到期了……</p><p>买主机的不在，然后就没人续了.jpg</p><p>这次炸如果运气好可能会在寒假（大概是1月初）恢复，稍安勿躁</p><p>您也可以通过赞（给）助（我）通（打）道（钱）加速站点恢复进度</p><p><a href="https://pay.thisisxd.top/"><img src="https://img.shields.io/badge/Sponsor%20me!-green?logo=wechat&amp;logoColor=white&amp;style=flat" alt="Sponsor me!"></a></p>]]></content>
     
@@ -358,7 +384,7 @@
     <link href="https://blog.thisisxd.top/202212/10/a8e5b4d3a66e/"/>
     <id>https://blog.thisisxd.top/202212/10/a8e5b4d3a66e/</id>
     <published>2022-12-10T09:18:19.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p>XDbot 目前已经回复运行，主机由 <a href="https://xiexilin.cn/">XieXiLin</a> 提供。</p><p>为了避免 XDbot 部分功能在部分群聊造成刷屏，我们组建了 XDbot用户群（159910125）</p><p>同时，因为期末考临近，XDbot 将暂停开发直到寒假。</p>]]></content>
     
@@ -382,7 +408,7 @@
     <link href="https://blog.thisisxd.top/202211/24/5b7ed84b6c48/"/>
     <id>https://blog.thisisxd.top/202211/24/5b7ed84b6c48/</id>
     <published>2022-11-24T04:27:21.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/Images/743577206.jpg" alt="别看了已经欠费了 -_-||"></p><p>我也不知道我是如何半个月把 500GB 流量跑炸的</p><p>总之就是莫名其妙就炸了</p><p>《<code>go-cqhttp</code>重连了一个星期》</p><p>xxtg（主机提供方）说要下个月才能恢复………</p><h2 id="公告"><a href="#公告" class="headerlink" title="公告"></a>公告</h2><p>因为主机又双叒叕 tmd 炸掉了，XDbot 官号将停止服务一段时间，预计恢复时间为 2022年12月1日晚，恢复后会进行通知</p><p><a href="//github.com/This-is-XiaoDeng/XDbot">This-is-XiaoDeng&#x2F;XDbot</a></p>]]></content>
     
@@ -407,7 +433,7 @@
     <link href="https://blog.thisisxd.top/202211/12/8bb20344158a/"/>
     <id>https://blog.thisisxd.top/202211/12/8bb20344158a/</id>
     <published>2022-11-12T10:46:22.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<table><thead><tr><th>属性</th><th>值</th></tr></thead><tbody><tr><td>项目名</td><td>XDChat</td></tr><tr><td>版本</td><td><a href="https://github.com/This-is-XiaoDeng/XDChat/releases/tag/v1.2.0">Release 1.2.0</a></td></tr><tr><td>仓库</td><td><a href="https://github.com/This-is-XiaoDeng/XDChat">GitHub</a></td></tr></tbody></table><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一个简单的跨平台聊天软件</p><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ol><li>Python3</li><li>rich</li></ol><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/This-is-XiaoDeng/XDChat.git</span><br><span class="line"><span class="built_in">cd</span> XDChat</span><br><span class="line">python3 -m pip install rich</span><br><span class="line">python3 ./main.py</span><br></pre></td></tr></table></figure><blockquote><h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>禁止将 XDChat 用于违法违规用途，否则本人不会承担因此产生的任何责任</p></blockquote><p><a href="https://github.com/This-is-XiaoDeng/XDChat">This-is-XiaoDeng&#x2F;XDChat</a></p>]]></content>
     
@@ -442,7 +468,7 @@
     <link href="https://blog.thisisxd.top/202211/09/9bc08a45801e/"/>
     <id>https://blog.thisisxd.top/202211/09/9bc08a45801e/</id>
     <published>2022-11-09T04:29:12.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/Images/2288666061.jpg" alt="Screenshot_20221109_122016.jpg"></p>]]></content>
     
@@ -465,7 +491,7 @@
     <link href="https://blog.thisisxd.top/202211/05/da92a0c9d5c7/"/>
     <id>https://blog.thisisxd.top/202211/05/da92a0c9d5c7/</id>
     <published>2022-11-05T04:42:11.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.823Z</updated>
     
     <content type="html"><![CDATA[<p>XDbot 正在Github上开源</p><p>目前正在重构插件代码</p><p>您可以在 <a href="https://github.com/This-is-XiaoDeng/XDbot">https://github.com/This-is-XiaoDeng/XDbot</a> 查看重构进度及提交<code>issue</code>、<code>Pull Request</code></p><p>计划预计将在两周内完成</p><p>为了管理方便，我也在合并 XDbot Core 和 Plus</p><p>期待您参与这项工程</p><p><a href="https://github.com/This-is-XiaoDeng/XDbot">View on Github</a></p>]]></content>
     
@@ -489,7 +515,7 @@
     <link href="https://blog.thisisxd.top/202211/01/0be258d429bb/"/>
     <id>https://blog.thisisxd.top/202211/01/0be258d429bb/</id>
     <published>2022-11-01T13:05:05.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
+    <updated>2023-11-28T13:14:17.819Z</updated>
     
     <content type="html"><![CDATA[<table><tr><td>项目名</td><td>PyPiSearch</td></tr><tr><td>版本</td><td>v1.0</td></tr><tr><td>GitHub</td><td>This-is-XiaoDeng/PyPiSearch</td></tr></table><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是一个 PyPi 搜索程序，一定程度上解决了 pip 不支持搜包的问题</p><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ol><li>Python3</li><li>rich</li><li>requests</li></ol><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/This-is-XiaoDeng/PyPiSearch.git</span><br><span class="line">pip install rich requests</span><br><span class="line">python3 main.py</span><br></pre></td></tr></table></figure><blockquote><h3 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h3><ol><li>程序启动后根据提示输入关键词并回车即可搜索</li><li>搜索速度由包数量和网速决定</li><li>GitHub 上还提供了 Linux x86_64 的二进制可执行程序</li></ol></blockquote><p><gb>This-is-XiaoDeng&#x2F;PyPiSearch</gb></p>]]></content>
     
@@ -508,30 +534,6 @@
     
     
     <category term="项目" scheme="https://blog.thisisxd.top/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>喜报：XDbot 寄了</title>
-    <link href="https://blog.thisisxd.top/202210/15/ef7296f2711d/"/>
-    <id>https://blog.thisisxd.top/202210/15/ef7296f2711d/</id>
-    <published>2022-10-15T03:45:14.000Z</published>
-    <updated>2023-11-07T15:16:43.624Z</updated>
-    
-    <content type="html"><![CDATA[<p>都别说了，看图吧……</p><p><img src="/Images/2382257823.png" alt="2022-10-15_11-33.png"></p><h2 id="公告"><a href="#公告" class="headerlink" title="公告"></a>公告</h2><p>因为 fzz 将 XDbot 用于违法违规用途，导致 XDbot帐号于 2022年10月15日 9:30:04 被冻结七天，已无法登录。期间 XDbot 将不会提供包括 回声洞、聊天排名、人品 在内的所有服务，恢复时间另行通知</p><h3 id="受影响的指令："><a href="#受影响的指令：" class="headerlink" title="受影响的指令："></a>受影响的指令：</h3><p>Core：(ALL)<br>Plus：(ALL)</p><h2 id="2022-10-21-修复进展"><a href="#2022-10-21-修复进展" class="headerlink" title="2022-10-21 修复进展"></a>2022-10-21 修复进展</h2><p>XDbot 几日前已经完全迁移到新号(340***2590)</p><p>目前所有功能已恢复</p><p>老号预计在近几天解封</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;都别说了，看图吧……&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/Images/2382257823.png&quot; alt=&quot;2022-10-15_11-33.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;公告&quot;&gt;&lt;a href=&quot;#公告&quot; class=&quot;headerlink&quot; title=&quot;公</summary>
-      
-    
-    
-    
-    <category term="新闻" scheme="https://blog.thisisxd.top/categories/%E6%96%B0%E9%97%BB/"/>
     
     
   </entry>
