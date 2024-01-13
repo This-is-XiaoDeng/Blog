@@ -105,3 +105,10 @@ theme: kratos-rebirth
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+
+pandoc:
+  enable: true
+  flags: --mathjax
+

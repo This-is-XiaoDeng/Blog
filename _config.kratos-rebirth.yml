@@ -240,3 +240,5 @@ friends:
       avatar: "https://static.xiexilin.com/me.png"
       link: "https://www.xiexilin.com"
   verify: true # 验证每个友链的可访问性，炸了会有提示
+
+
