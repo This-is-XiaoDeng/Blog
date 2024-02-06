@@ -7,7 +7,7 @@ tags:
 
 - 仓库: [This-is-XiaoDeng/upaste-rs][1]
 - 许可: [GPL-3.0][2]
-- 下载: [Releases]
+- 下载: [Releases][3]
 
 # 简介
 
